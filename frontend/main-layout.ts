@@ -13,8 +13,10 @@ interface MenuTab {
 }
 
 const menuTabs: MenuTab[] = [
-  {route: 'dashboard', name: 'Dashboard'},
   {route: '', name: 'Empty'},
+  {route: 'dashboard', name: 'Dashboard'},
+  {route: 'login', name: 'Login'},
+  {route: 'logout', name: 'Logout'},
 ];
 
 @customElement('main-layout')
