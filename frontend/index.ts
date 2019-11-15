@@ -17,10 +17,8 @@ const routes = [
     path: '',
     component: 'main-layout',
     children: [
-      {path: 'dashboard', component: 'dashboard-view'},
-      {path: 'login', action: () => window.location.replace('login')},
-      {path: 'logout', action: () => window.location.replace('logout')},
-      {path: '', component: 'empty-view'},
+      {path: '', component: 'dashboard-view'},
+      {path: 'empty', component: 'empty-view'},
 
       // add more client-side routes here
       // {

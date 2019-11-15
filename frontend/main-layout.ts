@@ -13,10 +13,8 @@ interface MenuTab {
 }
 
 const menuTabs: MenuTab[] = [
-  {route: '', name: 'Empty'},
-  {route: 'dashboard', name: 'Dashboard'},
-  {route: 'login', name: 'Login'},
-  {route: 'logout', name: 'Logout'},
+  {route: '', name: 'Dashboard'},
+  {route: 'Empty', name: 'Empty'},
 ];
 
 @customElement('main-layout')
@@ -40,7 +38,13 @@ export class MainLayoutElement extends LitElement {
               <a href="${menuTab.route}" tabindex="-1">${menuTab.name}</a>
             </vaadin-tab>
           `)}
-        </vaadin-tabs>
+            <vaadin-tab>
+              <a href="#" @click="${this.login}">Login</a>
+            </vaadin-tab>
+            <vaadin-tab>
+              <a href="#" @click="${this.logout}">Logout</a>
+            </vaadin-tab>
+          </vaadin-tabs>
         <slot></slot>
       </vaadin-app-layout>
         `;
@@ -53,6 +57,15 @@ export class MainLayoutElement extends LitElement {
 
     const routeUrl = new URL(route, document.baseURI);
     return routeUrl.pathname === this.location.pathname;
+  }
+
+  private login() {
+    window.location.replace('login');
+  }
+
+  private async logout() {
+    await fetch('logout');
+    window.location.reload();
   }
 
   private getIndexOfSelectedTab(): number {
