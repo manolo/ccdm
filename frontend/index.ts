@@ -6,8 +6,6 @@ import './main-layout';
 
 import './views/dashboard/dashboard-view';
 
-import './views/empty/empty-view';
-
 const {serverSideRoutes} = new Flow({
   imports: () => import('../target/frontend/generated-flow-imports')
 });
@@ -18,7 +16,7 @@ const routes = [
     component: 'main-layout',
     children: [
       {path: '', component: 'dashboard-view'},
-      {path: 'empty', component: 'empty-view'},
+      {path: 'dashboard', component: 'dashboard-view'},
 
       // add more client-side routes here
       // {
